@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS synapse_db;
+
+CREATE DATABASE synapse_db;
