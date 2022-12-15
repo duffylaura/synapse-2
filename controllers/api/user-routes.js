@@ -63,3 +63,18 @@ router.post("/signup", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//logout route
+router.post("/logout", (req, res) => {
+    if (req.session.loggedIn) {
+      // confirming if actuallu loggedIN,
+      req.session.destroy(() => {
+        //remove the current loggedIn session
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).json("error not loggedin").end();
+    }
+  });
+
+  module.exports = router;
