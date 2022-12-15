@@ -18,7 +18,7 @@ router.get('/', auth, async(req, res)=>{
             ],
         });
         const groups = allMembershipData.map((groups)=>groups.get({plain: true}));
-        console.log(post, "test");
+        console.log(groups, "test");
         res.render('profile', {
             groups, 
             loggedIn: true, 
@@ -35,6 +35,24 @@ router.get('/', auth, async(req, res)=>{
 
 router.get('/newGroup', auth, async (req, res)=> {
     res.render('newGroup');
+});
+
+router.get('/', auth, async(req,res) =>{
+    try{
+        const user = await User.findOne({
+            where:{
+                id: req.session.id
+            }
+        })
+        res.render('profile',{
+            user,
+            loggedIn: true,
+            username: req.session.username
+        })
+    }catch (err) {
+        console.log(err); 
+        res.status(500).json(err); 
+}
 });
 
 module.exports = router;

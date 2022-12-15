@@ -4,7 +4,7 @@ const loginFormHandler = async (event) => {
   // Collect values from the login form
 
   const email = document.querySelector("#email").value.trim();
-  const password = document.querySelector("#pw").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
   if (email && password) {
     // Send a POST request to the API endpoint
@@ -13,14 +13,14 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     });
-    if (!response.ok) {
-      duplicateCheck();
-      console.log(await response.json());
-      return;
-    } else {
+    if (response.ok) {
+      // console.log(await response.json());
+      document.location.replace('/profile')
+    } 
+    else {
       document.location.replace("/");
     }
   }
 };
 
-document.querySelector("#loginBtn").addEventListener("click", loginFormHandler);
+document.querySelector("#submit").addEventListener("click", loginFormHandler);
