@@ -18,3 +18,5 @@ router.post('/:id', auth, async (req, res) => {
             res.status(400).json(err); 
         }
 });
+
+module.exports = router;

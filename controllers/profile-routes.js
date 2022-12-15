@@ -36,3 +36,5 @@ router.get('/', auth, async(req, res)=>{
 router.get('/newGroup', auth, async (req, res)=> {
     res.render('newGroup');
 });
+
+module.exports = router;

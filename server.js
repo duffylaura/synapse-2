@@ -10,7 +10,7 @@ const exphbs = require("express-handlebars");
 // Create a new sequelize store using the express-session package so we can store session data so user can stay logged
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-const routes = require("./controllers");
+const routes = require('./controllers')
 const sequelize = require("./config/connection");
 const helpers = require("./utils/helpers");
 
@@ -57,3 +57,5 @@ sequelize.sync({ force: false }).then(() => {
         console.log(`now listening at http://localhost:${PORT}/`)
     );
 });
+
+

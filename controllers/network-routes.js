@@ -30,3 +30,4 @@ router.get('/', auth, async(req, res)=>{
 });
 
 //so now network has a route to get all users of a single group 
+module.exports = router;
