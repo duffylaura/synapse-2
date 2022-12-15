@@ -1,0 +1,73 @@
+{{#if loggedIn}}
+    <div class="container">
+        <div class="font">
+            <div class="row">
+                <div class="row"><br></br><br></br></div>
+                <div class="col-1"></div>
+                <div class="col-4"> 
+                    <div class="hide-on-phone">
+                        <div class="col-sm"><br></br></div>  
+                        <img class="img-fluid" src="./assets/profile-img.png" alt="Profile Image Place Holder" />
+                        <div class="col-sm"><br></br></div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div>
+                       <form>
+                            <div class="field">
+                            <label class="label">Define yourself...</label>
+                                <div class="control">
+                                    <input id="define" 
+                                    class="input create-input"
+                                    type="test"
+                                    placeholder="How do you define yourself?" />
+                                </div>
+                            </div>
+                            <div class="field is-grouped">
+                            <div class="control">
+                                <button id="submitDefine" 
+                                class="custom-button" 
+                                type="submit">
+                                <strong> Save. </strong>
+                                </button>
+                            </div>
+                            </div>
+                        </form>
+
+                        <div class="container">
+                            <p> Definition</p>
+                            <p class="font-italic"> {{user.username}}: noun.</p>
+                                <div>
+                                    <p> {{user.define}}</p>
+                                </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="font">
+            <div class ="row">
+                <p> My Groups: </p>
+            </div>
+            <div class="d-flex flex-column">
+                {{#if membership.length}}
+                {{#each membership as |Membership|}}
+                    <div class="p-2">{{Membership.group_id.name}}</div>
+                {{/each}}
+                {{else}}
+                 <div class="p-2">You haven't joined a group yet!</div>
+                 {{/if}}
+
+            </div>
+        </div>
+    </div>
+{{/if}}
+
+<script src=" /js/profile.js"></script>
+    
